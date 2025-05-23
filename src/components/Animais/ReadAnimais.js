@@ -9,8 +9,7 @@ const ReadAnimais = () => {
     useEffect(() => {
         axios.get(`http://localhost:8081/animais/`+id)
         .then((res) => {
-            console.log(res);
-            setAnimais(res.data);
+            setAnimais(res.data.animal); // Corrigido para acessar o objeto animal
         })
         .catch(err => console.log(err));
     },[id]);

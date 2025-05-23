@@ -9,7 +9,7 @@ const ReadTrabalhadores = () => {
     useEffect(() => {
         axios.get(`http://localhost:8081/trabalhadores/` + id)
         .then((res) => {
-            setTrabalhador(res.data);
+            setTrabalhador(res.data.trabalhador); // Corrigido para acessar o objeto trabalhador
         })
         .catch(err => console.log(err));
     }, [id]);

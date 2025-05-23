@@ -51,16 +51,16 @@ const ListTrabalhadores = () => {
                     <tbody>
                         {trabalhadores.map((trabalhador) => {
                         return (
-                            <tr key={trabalhador.id_trabalhadores}>
-                                <td>{trabalhador.id_trabalhadores}</td>
+                            <tr key={trabalhador.id_trabalhador}>
+                                <td>{trabalhador.id_trabalhador}</td>
                                 <td>{trabalhador.nome}</td>
                                 <td>{trabalhador.funcao}</td>
-                                <td>{new Date(trabalhador.createdAt).toLocaleDateString()}</td>
-                                <td>{new Date(trabalhador.updatedAt).toLocaleDateString()}</td>
+                                <td>{trabalhador.createdAt ? new Date(trabalhador.createdAt).toLocaleDateString() : ''}</td>
+                                <td>{trabalhador.updatedAt ? new Date(trabalhador.updatedAt).toLocaleDateString() : ''}</td>
                                 <td>
-                                    <Link to={`/readTrabalhadores/${trabalhador.id_trabalhadores}`} className='btn btn-primary'>Visualizar</Link>
-                                    <Link to={`/updateTrabalhadores/${trabalhador.id_trabalhadores}`} className='btn btn-warning'>Editar</Link>
-                                    <button className='btn btn-danger' onClick={() => handleDelete(trabalhador.id_trabalhadores)}>Deletar</button>
+                                    <Link to={`/readTrabalhadores/${trabalhador.id_trabalhador}`} className='btn btn-primary'>Visualizar</Link>
+                                    <Link to={`/updateTrabalhadores/${trabalhador.id_trabalhador}`} className='btn btn-warning'>Editar</Link>
+                                    <button className='btn btn-danger' onClick={() => handleDelete(trabalhador.id_trabalhador)}>Deletar</button>
                                 </td>
                             </tr>
                         )})
