@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const ListTrabalhadores = () => {
     const [trabalhadores, setTrabalhadores] = useState([]);
+    const navigate = useNavigate();
     useEffect(()=>{
         const fetchAllTrabalhadores = async () => {
           try {
@@ -25,10 +26,17 @@ const ListTrabalhadores = () => {
       }
   return (
     <div className='container'>
-        <h2 className='w-100 d-flex justify-content-center p-3'>Lista de Trabalhadores</h2>
+        <h2 className='w-100 d-flex justify-content-center p-3 zoo-title'>Lista de Trabalhadores</h2>
+        <div className='row mb-3'>
+            <div className='col d-flex gap-2'>
+                <Link to="/addTrabalhadores" className='btn btn-success'>Adicionar novo Trabalhador</Link>
+                <button className="btn btn-zoo d-flex align-items-center" onClick={() => navigate('/animais')}>
+                  <span role="img" aria-label="animal" style={{marginRight: 6}}>🦁</span>Ver Animais
+                </button>
+            </div>
+        </div>
         <div className='row'>
             <div className='col-md-12'>
-                <p><Link to="/addTrabalhadores" className='btn btn-success'>Adicionar novo Trabalhador</Link></p>
                 <table className='table table-striped'>
                     <thead>
                         <tr>

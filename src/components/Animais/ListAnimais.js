@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const ListAnimais = () => {
     const [animais, setAnimais] = useState([]);
+    const navigate = useNavigate();
     useEffect(()=>{
         const fetchAllAnimais = async () => {
           try {
@@ -27,10 +28,17 @@ const handleDelete = async (id) => {
 
   return (
     <div className='container'>
-      <h2 className='w-100 d-flex justify-content-center p-3'>Lista de Animais</h2>
+      <h2 className='w-100 d-flex justify-content-center p-3 zoo-title'>Lista de Animais</h2>
+      <div className='row mb-3'>
+        <div className='col d-flex gap-2'>
+          <Link to="/addAnimais" className='btn btn-success'>Adicionar novo Animal</Link>
+          <button className="btn btn-zoo d-flex align-items-center" onClick={() => navigate('/trabalhadores')}>
+            <span role="img" aria-label="trabalhador" style={{marginRight: 6}}>👷</span>Ver Trabalhadores
+          </button>
+        </div>
+      </div>
       <div className='row'>
         <div className='col-md-12'>
-          <p><Link to="/addAnimais" className='btn btn-success'>Adicionar novo Animal</Link></p>
           <table className='table table-striped'>
             <thead>
               <tr>

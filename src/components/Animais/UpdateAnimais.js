@@ -53,10 +53,11 @@ const UpdateAnimais = () => {
                     <label htmlFor='updatedAt' className='form-label'>Atualizado em</label>
                     <input type='text' className='form-control' id='updatedAt' name='updatedAt' value={animais.updatedAt ? new Date(animais.updatedAt).toLocaleDateString() : ''} disabled />
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={handleClick}>Atualizar</button>
-                <br />
-                <button type="button" className="btn btn-secondary" onClick={() => navigate('/animais')}>Voltar</button>
-                <button type="reset" className="btn btn-danger">Limpar</button>
+                <div className="d-flex flex-wrap gap-2 justify-content-end mb-2">
+                    <button type="submit" className="btn btn-primary" onClick={handleClick}>Atualizar</button>
+                    <button type="button" className="btn btn-secondary" onClick={() => navigate('/animais')}>Voltar</button>
+                    <button type="reset" className="btn btn-danger" onClick={() => setAnimais({especie: '', quantidade: '', habitate: ''})}>Limpar</button>
+                </div>
             </form>
         </div>
     )

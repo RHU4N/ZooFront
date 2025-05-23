@@ -38,10 +38,11 @@ const AddTrabalhadores = () => {
                         <label htmlFor='funcao' className='form-label'>Função</label>
                         <input type='text' className='form-control' id='funcao' name='funcao' onChange={handleChange} placeholder='Digite a função do trabalhador' />
                     </div>
-                    <button type="submit" className="btn btn-primary" onClick={handleClick}>Adicionar</button>
-                    <br />
-                    <button type="button" className="btn btn-secondary" onClick={() => navigate('/trabalhadores')}>Voltar</button>
-                    <button type="reset" className="btn btn-danger">Limpar</button>
+                    <div className="d-flex gap-2 mb-2">
+                        <button type="submit" className="btn btn-success" onClick={handleClick}>Adicionar</button>
+                        <button type="button" className="btn btn-secondary" onClick={() => navigate('/trabalhadores')}>Voltar</button>
+                        <button type="reset" className="btn btn-danger">Limpar</button>
+                    </div>
                 </form>
             </div>
     </div>

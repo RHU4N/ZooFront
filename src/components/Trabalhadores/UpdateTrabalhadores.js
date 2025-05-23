@@ -48,10 +48,11 @@ const UpdateTrabalhadores = () => {
                     <label htmlFor='updatedAt' className='form-label'>Atualizado em</label>
                     <input type='text' className='form-control' id='updatedAt' name='updatedAt' value={trabalhador.updatedAt ? new Date(trabalhador.updatedAt).toLocaleDateString() : ''} disabled />
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={handleClick}>Atualizar</button>
-                <br />
-                <button type="button" className="btn btn-secondary" onClick={() => navigate('/trabalhadores')}>Voltar</button>
-                <button type="reset" className="btn btn-danger" onClick={() => setTrabalhador({nome: '', funcao: ''})}>Limpar</button>
+                <div className="d-flex flex-wrap gap-2 justify-content-end mb-2">
+                    <button type="submit" className="btn btn-primary" onClick={handleClick}>Atualizar</button>
+                    <button type="button" className="btn btn-secondary" onClick={() => navigate('/trabalhadores')}>Voltar</button>
+                    <button type="reset" className="btn btn-danger" onClick={() => setTrabalhador({nome: '', funcao: ''})}>Limpar</button>
+                </div>
             </form>
         </div>
     )
